@@ -1,0 +1,22 @@
+# Starting settings for the circuit breaker.
+# Any value can be overridden with an environment variable named
+# BREAKER_<SECTION>__<KEY>, e.g. BREAKER_LIMITS__MAX_STEPS_PER_RUN=50
+
+limits:
+  # A "step" is one LLM call made by the agent during a single run.
+  max_steps_per_run: 25
+  # Hard spending cap for a single run, in US dollars.
+  budget_per_run_usd: 2.00
+  # How many times the same call (same prompt + tool) may repeat before we call it a loop.
+  repeat_call_limit: 3
+
+pricing:
+  # Providers charge differently for tokens sent (input) and tokens received (output).
+  # Placeholder numbers; set them to your provider's real prices.
+  input_per_1k_tokens_usd: 0.003
+  output_per_1k_tokens_usd: 0.015
+
+rules:
+  step_limit: true
+  budget: true
+  repeat_call: true

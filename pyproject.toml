@@ -1,0 +1,36 @@
+[project]
+name = "agent-circuit-breaker"
+version = "0.1.0"
+description = "A fuse box between an AI agent and its LLM provider: pauses looping or overspending runs and asks a human before acting."
+readme = "README.md"
+authors = [
+    { name = "Nikk6174", email = "nikk.6174@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "pyyaml>=6.0.3",
+]
+
+[build-system]
+requires = ["uv_build>=0.9.5,<0.10.0"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "breaker"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+    "ruff>=0.17.1",
+]
