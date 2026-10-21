@@ -89,7 +89,7 @@ It fails loudly instead of ignoring you.
 
 ## What comes next
 
-Part 02 builds the store, the gate's memory. Before the gate can decide anything, it needs to
+After a short LangGraph warm-up in Part 02, Part 03 builds the store, the gate's memory. Before the gate can decide anything, it needs to
 write down "run 42 has taken 12 steps and spent $0.80". We'll define the store as a small
 interface with a simple local version, so we can later swap in an AWS database without changing
 its callers. Memory comes before judgement, so the store comes before the rules and the gate.
